@@ -2855,9 +2855,9 @@ body.v-dark .ig-choice-card { background: rgba(38,38,42,.97); color: #fff; }
   var SK_FIRST = '내 후배가 너 소개받고 싶다던데??';
   var SK_TIME = '(금) 오후 2:39';
   var VID_SEC = 37;                      // 동영상 길이(초)
-  var VIDEOS = [                         // 선택지별 동영상 (Dropbox 직접 재생 주소)
-    'https://dl.dropboxusercontent.com/scl/fi/6rcdly13jg8ui6y9s5j20/.MP4?rlkey=08574lip8vfmw9o9wvfslotqu&st=00vra9an&dl=1',
-    'https://dl.dropboxusercontent.com/scl/fi/o04gqgpgqi829eyz35by4/.MP4?rlkey=ukipbea71wxpv7ilvpalbhbo8&st=wtk0rezl&dl=1'
+  var VIDEOS = [                         // 선택지별 동영상 (index.html과 같은 폴더에 둔 파일)
+    '1.mp4',   // '지나오다 불러 주면 잘 수 있을 듯ㅋㅋ'
+    '2.mp4'    // '바라봐줘요 불러 주라 예삐야ㅎㅎ'
   ];
   var CHOICES = ['지나오다 불러 주면 잘 수 있을 듯ㅋㅋ', '바라봐줘요 불러 주라 예삐야ㅎㅎ'];
   var SK_TYPED = 'ㅈㅅㅈㅅ 나 좋아하는 사람이랑 다시 만나기로 했엉';
@@ -3353,7 +3353,7 @@ body.v-dark .ig-choice-card { background: rgba(38,38,42,.97); color: #fff; }
     if (vidIdx < vidCands.length - 1) { vidIdx++; tryVideoSrc(); return; }   // 다음 주소로 재시도
     vidFailed = true;
     var c = vid.error ? vid.error.code : 0;
-    vidNote(c === 4 ? '영상을 불러올 수 없어요 (주소가 만료됐거나 지원하지 않는 형식)' : '영상을 불러오지 못했어요 (오류 ' + c + ')');
+    vidNote(c === 4 ? '영상을 불러올 수 없어요 (1.mp4 / 2.mp4 파일이 index.html과 같은 폴더에 있는지 확인해 주세요)' : '영상을 불러오지 못했어요 (오류 ' + c + ')');
   }
   vid.addEventListener('error', videoFailed);
   vid.addEventListener('loadstart', function () { if (vidOn && !vidFailed) vidNote('불러오는 중...'); });
